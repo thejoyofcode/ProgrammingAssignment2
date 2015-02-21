@@ -22,7 +22,7 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## this function takes makeCacheMatrix as an argument,
+## this function takes the output of makeCacheMatrix as an argument,
 ## retrieves inverse matrix if already present;
 ## if the inverse is not stored, then computes the inverse and
 ## stores it with setinverse()
@@ -35,6 +35,7 @@ cacheSolve <- function(x, ...) {
   }
   data <- x$get()
   inv <- solve(data, ...)
+  message("calculating inverse")
   x$setinverse(inv)
   inv
 }
